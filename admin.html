@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetici Paneli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <div id="loginForm" class="max-w-md mx-auto bg-gray-800 p-8 rounded-lg">
+            <h2 class="text-2xl font-bold text-yellow-500 mb-6 text-center">Yönetici Girişi</h2>
+            <form id="authForm" class="space-y-4">
+                <input type="text" id="username" placeholder="Kullanıcı Adı" required
+                       class="w-full p-3 bg-gray-700 rounded-lg text-white">
+                <input type="password" id="password" placeholder="Şifre" required
+                       class="w-full p-3 bg-gray-700 rounded-lg text-white">
+                <button type="submit" 
+                        class="w-full bg-yellow-500 text-gray-900 font-bold py-3 rounded-lg hover:bg-yellow-600">
+                    Giriş Yap
+                </button>
+            </form>
+        </div>
+
+        <div id="adminPanel" class="hidden">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold text-yellow-500">Yönetici Paneli</h1>
+                <div class="flex gap-4">
+                    <a href="/" class="bg-gray-700 text-white px-6 py-2 rounded-lg hover:bg-gray-600">
+                        Ana Sayfaya Dön
+                    </a>
+                    <button id="logoutBtn" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">
+                        Çıkış Yap
+                    </button>
+                </div>
+            </div>
+
+            <button id="addNewItemBtn" class="bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-bold mb-8 hover:bg-yellow-600">
+                <i class="fas fa-plus mr-2"></i>Yeni Ürün Ekle
+            </button>
+
+            <div id="menuItems" class="space-y-4">
+                <!-- Menu items will be loaded here -->
+            </div>
+
+            <!-- Add Item Modal -->
+            <div id="addItemModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="bg-gray-800 p-8 rounded-lg w-full max-w-2xl">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-yellow-500">Yeni Ürün Ekle</h2>
+                        <button id="closeModal" class="text-gray-400 hover:text-white">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <form id="addItemForm" class="grid grid-cols-2 gap-6">
+                        <div class="col-span-1">
+                            <img id="imagePreview" src="https://placehold.co/300x300/374151/FFD700/png?text=Ürün+Fotoğrafı" 
+                                 alt="Preview" class="w-full h-auto rounded-lg mb-4">
+                            <input type="file" id="itemImage" accept="image/*" class="hidden">
+                            <label for="itemImage" 
+                                   class="block w-full text-center bg-gray-700 text-white py-2 rounded-lg cursor-pointer hover:bg-gray-600">
+                                <i class="fas fa-camera mr-2"></i>Fotoğraf Seç
+                            </label>
+                        </div>
+                        <div class="col-span-1 space-y-4">
+                            <input type="text" id="itemName" placeholder="Ürün Adı" required
+                                   class="w-full p-3 bg-gray-700 rounded-lg text-white">
+                            <textarea id="itemDescription" placeholder="Açıklama" required
+                                      class="w-full p-3 bg-gray-700 rounded-lg text-white h-32"></textarea>
+                            <input type="number" id="itemPrice" placeholder="Fiyat" required
+                                   class="w-full p-3 bg-gray-700 rounded-lg text-white">
+                            <button type="submit" 
+                                    class="w-full bg-yellow-500 text-gray-900 font-bold py-3 rounded-lg hover:bg-yellow-600">
+                                <i class="fas fa-save mr-2"></i>Kaydet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="src/admin.js"></script>
+</body>
+</html>

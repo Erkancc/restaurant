@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Menü</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">R</div>
+                <h1>Restoran Menü</h1>
+            </div>
+            <a href="admin/index.html" class="admin-link">Yönetici Girişi</a>
+        </header>
+
+        <main>
+            <div class="menu-container" id="menuContainer">
+                <!-- Menu items will be added here -->
+            </div>
+
+            <div class="cart">
+                <div class="cart-header" id="cartHeader">
+                    <div class="cart-total">
+                        <strong>Toplam:</strong> 
+                        <span id="totalPrice">0 TL</span>
+                        <i class="fas fa-chevron-up toggle-icon"></i>
+                    </div>
+                </div>
+                <div class="cart-content" id="cartContent">
+                    <div id="cartItems"></div>
+                    <div class="cart-actions">
+                        <button id="shareOrder" class="share-btn">
+                            <i class="fab fa-whatsapp mr-2"></i>Siparişi Paylaş
+                        </button>
+                        <button id="generateQR" class="share-btn">
+                            <i class="fas fa-qrcode mr-2"></i>QR Kod Oluştur
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Sipariş QR Kodu</h3>
+            <div id="qrCode"></div>
+        </div>
+    </div>
+
+    <script src="src/main.js" type="module"></script>
+</body>
+</html>
